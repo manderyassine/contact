@@ -7,10 +7,7 @@ dotenv.config();
 const mongoURI = process.env.MONGODB_URI;
 
 // Connect to MongoDB
-mongoose.connect(mongoURI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
+mongoose.connect(mongoURI, {serverSelectionTimeoutMS: 5000})
   .then(() => console.log('Connected to MongoDB for CRUD operations'))
   .catch((err) => console.log('MongoDB connection error:', err));
 
